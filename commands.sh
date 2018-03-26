@@ -53,6 +53,7 @@ function look {
 
 function goto {
   cd $1
+  look
 }
 
 function attack {
