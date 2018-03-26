@@ -40,7 +40,7 @@ function look {
 
   if [ "$target" = "fil" ] || [ "$target" = "dir" ]; then
     for entry in `ls -A`; do
-      display=${entry:2}
+      display=${entry}
       if [ "$target" = "fil" ] && [ -f "$entry" ]; then
         printf "${MAGENTA}${display}${NO_COLOR} is $(_pickRandom ${actions[@]}) here.\n";
       elif [ "$target" = "dir" ] && [ -d "$entry" ]; then
