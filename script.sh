@@ -10,11 +10,11 @@ while true; do
 done
 
 export TM_CHARSHEET=~/terminalmud/characters/$TM_CHAR_NAME.sh
-if [ ! -f $TM_CHARSHEET ]; then
-  _createCharacter $TM_CHARSHEET
+if [ ! -f "$TM_CHARSHEET" ]; then
+  _createCharacter "$TM_CHARSHEET"
 fi
 
-source $TM_CHARSHEET
+source "$TM_CHARSHEET"
 
 printf "\n"
 
