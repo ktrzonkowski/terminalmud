@@ -1,6 +1,6 @@
 function _pickRandom {
-  input=("$@")
-  echo ${input[$RANDOM % ${#input[@]} ]}
+  input=("${!1}")
+  echo ${input["$[RANDOM % ${#input[@]}]"]}
 }
 
 function _createCharacter {
@@ -42,9 +42,9 @@ function look {
     for entry in `ls -A`; do
       display=${entry}
       if [ "$target" = "fil" ] && [ -f "$entry" ]; then
-        printf "${MAGENTA}${display}${NO_COLOR} is $(_pickRandom ${actions[@]}) here.\n";
+        printf "${MAGENTA}${display}${NO_COLOR} is $(_pickRandom "actions[@]") here.\n";
       elif [ "$target" = "dir" ] && [ -d "$entry" ]; then
-        printf "${CYAN}${display}${NO_COLOR} lies to the $(_pickRandom ${directions[@]}).\n";
+        printf "${CYAN}${display}${NO_COLOR} lies to the $(_pickRandom "directions[@]").\n";
       fi
     done
   else
