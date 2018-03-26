@@ -9,10 +9,10 @@ Turn your regular terminal experience into a MUD.  Fun not guaranteed.
 ## Commands
 
 ``look``
-- Lists all directories and files in the current room.
+- Lists the number of directories and files in the current room.
 
 ``look <files|directories|dir>``
-- Lists the specific files or directories in the current room.
+- Lists all the files or directories in the current room.
 
 ``goto <DIRECTORY>``
 - Alias for cd, but with more flavor.
@@ -28,6 +28,7 @@ Turn your regular terminal experience into a MUD.  Fun not guaranteed.
 
 ## Todo
 * [ ] General cleanup and documentation
+* [ ] A way to customize room descriptions (i.e. ~/ = "You are standing in your home.  It is warm and cozy here, thanks to the plush rug and crackling fireplace.")
 * [ ] More dynamic attacking?  Automatic attacking when using specific commands, i.e. vim test.txt automatically gives xp?
-* [ ] User configuration
+* [ ] User configuration?
 * [ ] Incorprate HP?  Gold?  Why?  Whatfore?
