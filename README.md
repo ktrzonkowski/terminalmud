@@ -15,12 +15,16 @@ Turn your regular terminal experience into a MUD.  Fun not guaranteed.
 - Lists the specific files or directories in the current room.
 
 ``goto <DIRECTORY>``
-- Alias for cd, but with more flavor (WIP).
+- Alias for cd, but with more flavor.
 
 ``attack <TARGET> <ACTION(S)>``
 - How to earn experience.  Examples:
 -- attack test.txt vim
 -- attack target.txt cp destination.txt
+
+``cast <ACTION>``
+- Earn experience for commands that don't require a target
+-- cast ls -l
 
 ## Todo
 * [ ] General cleanup and documentation
