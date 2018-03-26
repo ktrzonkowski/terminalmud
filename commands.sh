@@ -64,32 +64,37 @@ function goto {
 }
 
 function attack {
-  if [ ! $2 ]; then
-    read -p "With what would you like to attack ${1}? " 2
+  target=$1
+  action=$2
+
+  if [ ! $action ]; then
+    read -p "With what would you like to attack ${target}? " action
   fi
 
-  if [ -n "$(type -t $2)" ]; then
-    printf "You attack ${1} with your ${2}.\n";
+  if [ -n "$(type -t $action)" ]; then
+    printf "You attack ${target} with your ${action}.\n";
     _earnExp
     sleep 1
-    $2 $1 ${@:3}
+    $action $target ${@:3}
   else
-    printf "You don't know how to '${2}'.\n"
+    printf "You don't know how to '${action}'.\n"
   fi
 }
 
 function cast {
-  if [ ! $1 ]; then
-    read -p "What spell would you like to cast? " 1
+  spell=$1
+
+  if [ ! $spell ]; then
+    read -p "What spell would you like to cast? " spell
   fi
 
-  if [ -n "$(type -t $1)" ]; then
-    printf "You recite the incantation to cast ${1}.\n";
+  if [ -n "$(type -t $spell)" ]; then
+    printf "You recite the incantation to cast ${spell}.\n";
     _earnExp
     sleep 1
     ${@:1}
   else
-    printf "You don't know how to cast '${1}'.\n"
+    printf "You don't know how to cast '${spell}'.\n"
   fi
 }
 
