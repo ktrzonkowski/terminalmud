@@ -87,7 +87,7 @@ function cast {
     printf "You recite the incantation to cast ${1}.\n";
     _earnExp
     sleep 1
-    $1
+    ${@:1}
   else
     printf "You don't know how to cast '${1}'.\n"
   fi
