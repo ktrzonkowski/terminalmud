@@ -23,7 +23,7 @@ Turn your regular terminal experience into a MUD.  Fun not guaranteed.
 -- attack target.txt cp destination.txt
 
 ## Todo
-[ ] General cleanup and documentation
-[ ] More dynamic attacking?  Automatic attacking when using specific commands, i.e. vim test.txt automatically gives xp?
-[ ] User configuration
-[ ] Incorprate HP?  Gold?  Why?  Whatfore?
+* [ ] General cleanup and documentation
+* [ ] More dynamic attacking?  Automatic attacking when using specific commands, i.e. vim test.txt automatically gives xp?
+* [ ] User configuration
+* [ ] Incorprate HP?  Gold?  Why?  Whatfore?
