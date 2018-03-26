@@ -39,7 +39,7 @@ function look {
   actions=("standing" "sitting" "resting" "dancing" "thinking" "singing" "hiding")
 
   if [ "$target" = "fil" ] || [ "$target" = "dir" ]; then
-    for entry in ./*; do
+    for entry in `ls -A`; do
       display=${entry:2}
       if [ "$target" = "fil" ] && [ -f "$entry" ]; then
         printf "${MAGENTA}${display}${NO_COLOR} is $(_pickRandom ${actions[@]}) here.\n";
@@ -50,7 +50,7 @@ function look {
   else
     printf "You are standing in ${PWD}.\n"
 
-    tmp=$(find . -type d -maxdepth 1 | wc -l)
+    tmp=$(find . -type d -maxdepth 1 -mindepth 1 | wc -l)
     printf "${tmp} directories are here.\n"
 
     tmp=$(find . -type f -maxdepth 1 | wc -l)
