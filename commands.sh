@@ -4,10 +4,10 @@ function _pickRandom {
 }
 
 function _createCharacter {
-  touch $TM_CHARSHEET
-  echo "export TM_CHAR_LEVEL=1" > $TM_CHARSHEET
-  echo "export TM_CHAR_HP=10" >> $TM_CHARSHEET
-  echo "export TM_CHAR_EXP=0" >> $TM_CHARSHEET
+  touch "$TM_CHARSHEET"
+  echo "export TM_CHAR_LEVEL=1" > "$TM_CHARSHEET"
+  echo "export TM_CHAR_HP=10" >> "$TM_CHARSHEET"
+  echo "export TM_CHAR_EXP=0" >> "$TM_CHARSHEET"
 }
 
 function _updateCharacter {
@@ -17,9 +17,9 @@ function _updateCharacter {
     TM_CHAR_LEVEL=$((TM_CHAR_LEVEL+1))
   fi
 
-  echo "export TM_CHAR_LEVEL=${TM_CHAR_LEVEL}" > $TM_CHARSHEET
-  echo "export TM_CHAR_HP=${TM_CHAR_HP}" >> $TM_CHARSHEET
-  echo "export TM_CHAR_EXP=${TM_CHAR_EXP}" >> $TM_CHARSHEET
+  echo "export TM_CHAR_LEVEL=${TM_CHAR_LEVEL}" > "$TM_CHARSHEET"
+  echo "export TM_CHAR_HP=${TM_CHAR_HP}" >> "$TM_CHARSHEET"
+  echo "export TM_CHAR_EXP=${TM_CHAR_EXP}" >> "$TM_CHARSHEET"
 }
 
 function _updatePrompt {
