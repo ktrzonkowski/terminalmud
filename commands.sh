@@ -22,6 +22,13 @@ function _updateCharacter {
   echo "export TM_CHAR_EXP=${TM_CHAR_EXP}" >> "$TM_CHARSHEET"
 }
 
+function _earnExp {
+  tmp=$((RANDOM%25+6))
+  printf "You earn ${tmp} experience!\n";
+  export TM_CHAR_EXP=$((TM_CHAR_EXP+$tmp))
+  _updateCharacter $TM_CHARSHEET
+}
+
 function _updatePrompt {
   export PS1="\n<${YELLOW}LVL${BRIGHT_YELLOW}${TM_CHAR_LEVEL} ${GREEN}EXP${BRIGHT_GREEN}${TM_CHAR_EXP}${NO_COLOR}> "
 }
@@ -63,14 +70,26 @@ function attack {
 
   if [ -n "$(type -t $2)" ]; then
     printf "You attack ${1} with your ${2}.\n";
-    tmp=$((RANDOM%25+6))
-    printf "You earn ${tmp} experience!\n";
-    export TM_CHAR_EXP=$((TM_CHAR_EXP+$tmp))
-    _updateCharacter $TM_CHARSHEET
+    _earnExp
     sleep 1
     $2 $1 ${@:3}
   else
     printf "You don't know how to '${2}'.\n"
+  fi
+}
+
+function cast {
+  if [ ! $1 ]; then
+    read -p "What spell would you like to cast? " 1
+  fi
+
+  if [ -n "$(type -t $1)" ]; then
+    printf "You recite the incantation to cast ${1}.\n";
+    _earnExp
+    sleep 1
+    $1
+  else
+    printf "You don't know how to cast '${1}'.\n"
   fi
 }
 
