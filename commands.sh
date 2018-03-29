@@ -165,20 +165,24 @@ function inspect {
     keywords=($(_fetchItem $item keywords))
 
     if [ "$name" = "$search" ]; then
-      printf "$(_fetchItem $item desc)\n"
+      echo "$(_fetchItem "$item" desc)"
       found=1
       break
     fi
 
-    case "${keywords[@]}" in *"$search"*)
-      printf "$(_fetchItem $item desc)\n"
-      found=1
-      break
-    esac
+    if [ "$found" -eq 0 ]; then
+      keywordSearch='"'$search'"'
+
+      case "${keywords}" in *"$keywordSearch"*)
+        echo "$(_fetchItem "$item" desc)"
+        found=1
+        break
+      esac
+    fi
   done
 
-  if [ $found -eq 0 ]; then
-    printf "You don't see a '${search}' in your inventory."
+  if [ "$found" -eq 0 ]; then
+    printf "You don't see a ${search} in your inventory."
   fi
 }
 
