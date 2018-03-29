@@ -155,6 +155,8 @@ function inv {
 }
 
 function inspect {
+  source "$TM_CHARSHEET"
+
   search=$1
   found=0
 
