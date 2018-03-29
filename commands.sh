@@ -29,7 +29,7 @@ function _earnRewards {
   printf "You earn ${tmp} experience!\n";
   export TM_CHAR_EXP=$((TM_CHAR_EXP+$tmp))
 
-  if [ $(( ( RANDOM % 2 ) + 1 )) -eq 1 ]; then
+  if [ $(( ( RANDOM % 2 ) + 10 )) -eq 1 ]; then
     if [ -z "$TM_CHAR_INV" ]; then
       export TM_CHAR_INV=()
     fi

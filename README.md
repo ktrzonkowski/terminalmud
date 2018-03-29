@@ -18,13 +18,19 @@ Turn your regular terminal experience into a MUD.  Fun not guaranteed.
 - Alias for cd, but with more flavor.
 
 ``attack <TARGET> <ACTION(S)>``
-- How to earn experience.  Examples:
+- How to earn experience and, sometimes, items.  Examples:
 -- attack test.txt vim
 -- attack target.txt cp destination.txt
 
 ``cast <ACTION>``
-- Earn experience for commands that don't require a target
+- Earn rewards for commands that don't require a target.
 -- cast ls -l
+
+``inv``
+- View your inventory.
+
+``inspect <ITEM>``
+- Take a closer look at an item you've got.
 
 ## Todo
 * [ ] General cleanup and documentation
